@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <!--A simple layout to display-->
+    <!--we use data binding here-->
+    <data>
+        <variable
+            name="presenter"
+            type="com.debanjan.temperatureconversion.presenter.DisplayActivityPresenter"/>
+    </data>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_display"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.debanjan.temperatureconversion.view.activity.DisplayActivity"
+    android:orientation="vertical">
+    <!--We will be using data binding for ease of access to presenter-->
+
+    <EditText
+        android:id="@+id/fahrenheit_edit_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/fahrenheit"
+        android:inputType="numberDecimal|numberSigned"
+        android:onTextChanged="@{(s,start,before,count) -> presenter.onFahrenheitChanged(s)}"
+        android:layout_marginBottom="20dp"/>
+    <EditText
+        android:id="@+id/celsius_edit_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal|numberSigned"
+        android:hint="@string/celsius"
+        android:onTextChanged="@{(s,start,before,count) -> presenter.onCelsiusChanged(s)}"/>
+</LinearLayout>
+</layout>
